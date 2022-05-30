@@ -1,0 +1,19 @@
+.sidebar {
+  grid-area: sidebar;
+}
+
+.header {
+  grid-area: header;
+}
+
+.content {
+  grid-area: content;
+}
+
+.App {
+  display: grid;
+  grid-template-columns: 11.7rem auto;
+  grid-template-areas:
+    "header header"
+    "sidebar content";
+}

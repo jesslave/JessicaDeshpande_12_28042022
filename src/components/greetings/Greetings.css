@@ -1,0 +1,13 @@
+h1 {
+    font-size: 4.8rem;
+    font-weight: 500;
+}
+
+p {
+    font-weight: 400;
+    font-size: 1.8rem;
+}
+
+.username {
+    color: red;
+}

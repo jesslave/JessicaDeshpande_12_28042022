@@ -1,0 +1,50 @@
+.daily {
+    width: 110rem;
+    height: 32rem;
+    background-color: #FBFBFB;
+    border-radius: 2%;
+    padding: 4rem;
+}
+
+.black-circle {
+    background-color: black;
+    padding:0.05rem 0.7rem;
+    border-radius: 100%;
+    margin-right: 1rem;
+}
+
+.red-circle {
+    background-color: red;
+    padding:0.05rem 0.7rem;
+    border-radius: 100%;
+    margin-right: 1rem;
+}
+
+.legende { 
+    display: flex;
+    justify-content: space-between;
+}
+
+.activity-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.legende-libelle {
+    font-size: 1.2rem;
+    color: #74798C;
+    font-weight: 600;
+}
+
+.tooltip-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.tooltip-content {
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 1rem;
+    background-color: #e60000;
+}

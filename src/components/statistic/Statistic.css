@@ -1,0 +1,30 @@
+.stat-background {
+    height: 7.2rem;
+    width: 20.6rem;
+    border-radius: 0.6rem;
+    
+    background-color: #FBFBFB;
+    display: flex;
+    align-items: center;
+    padding: 3.2rem;
+    margin-bottom: 3.9rem;
+}
+
+.stat-icon {
+    height: 6rem;
+    width: 6rem;
+}
+
+.stat-stats {
+    margin-left: 2.4rem;
+    display: grid;
+}
+.stat-quantity {
+    font-size: 2rem;
+    font-weight: bold;
+}
+.stat-type {
+    font-size: 1.4rem;
+    color: #74798C;
+    font-weight: bold;
+}

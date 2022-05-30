@@ -1,0 +1,26 @@
+.avg {
+    position: relative;
+    z-index: 0;
+    width: 25.8rem;
+    height: 26.3rem;
+    background-color: #FF0000;
+    border-radius: 5%;
+}
+
+.avg-title {
+    position: absolute;
+    z-index: 1;
+    color: #FF8181;
+    top: 3%;
+    left: 10%;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.avg-tooltip-content {
+    color: black;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 1rem;
+    background-color: white;
+}

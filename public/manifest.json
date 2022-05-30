@@ -1,0 +1,25 @@
+{
+  "short_name": "Proj12",
+  "name": "Projet12",
+  "icons": [
+    {
+      "src": "bike.png"
+    },
+    {
+      "src": "logo.png"
+    },
+    {
+      "src": "swim.png"
+    },
+    {
+      "src": "weight.png"
+    },
+    {
+      "src": "yoga.png"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

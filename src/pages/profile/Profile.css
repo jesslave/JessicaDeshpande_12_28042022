@@ -1,0 +1,39 @@
+.greet {
+    grid-area: greet;
+}
+
+.act {
+    grid-area: act;
+    width: 100%;
+    height: 100%;
+}
+
+.average {
+    grid-area: average;
+}
+
+.rad {
+    grid-area: rad;
+}
+
+.sco {
+    grid-area: sco;
+}
+
+.sta {
+    grid-area: sta;
+}
+
+.blank {
+    grid-area: blank;
+}
+
+.profile {
+    display: grid;
+    grid-template-areas: 
+        "blank greet greet . ."
+        "blank act act act sta"
+        "blank act act act sta"
+        "blank average rad sco sta"
+        "blank average rad sco sta";
+}
