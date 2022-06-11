@@ -5,7 +5,7 @@ Project 12 of openclassroom is about an application for monitoring physical acti
 ## Links
 
 - [Repository 📖](https://github.com/jesslave/JessicaDeshpande_12_28042022)
-- [Documentation 📑](https://github.com/jesslave/JessicaDeshpande_12_28042022)
+- [Documentation 📑](https://jesslave.github.io/JessicaDeshpande_12_28042022/)
 - [Figma mock-up 🖼️](https://www.figma.com/file/BMomGVZqLZb811mDMShpLu/UI-design-Sportify-FR)
 
 ## Technologies used
