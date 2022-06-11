@@ -26,8 +26,8 @@ Project 12 of openclassroom is about an application for monitoring physical acti
 - When the back is started, on your front terminal write the command "npm start"
 
 The two profiles are the following :
-- [Karl]http://localhost:3000/profile/12
-- [Cecilia]http://localhost:3000/profile/18
+- [Karl](http://localhost:3000/profile/12)
+- [Cecilia](http://localhost:3000/profile/18)
 
 ## License
 
