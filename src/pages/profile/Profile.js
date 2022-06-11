@@ -9,6 +9,11 @@ import { ChartPie } from "../../components/pieChart/ChartPie";
 import { Statistic } from "../../components/statistic/Statistic";
 import './Profile.css';
 
+/**
+ * Home page display
+ * @component
+ * @returns {object} <div> html object
+ */
 export function Profile() {
     const httpService = HttpService();
     const [isLoading, setLoading] = useState(true);
@@ -16,7 +21,7 @@ export function Profile() {
     const [userActivities, setUserActivities] = useState();
     const [userAverageSession, setUserAverageSession] = useState();
     const [userPerformance, setUserPerformance] = useState();
-
+    const [error, setError] = useState(false);
     const { userId } = useParams();
 
     //Call of the service to get all the data
@@ -32,14 +37,23 @@ export function Profile() {
             setUserAverageSession(userAvgSession.data.data)
             setUserPerformance(userPerf.data)
             setLoading(false)
+        }).catch(res => {
+            setError(true);
         })
         
     }, [])
 
     //While the data are loading, we stay in loading status
-    if (isLoading) {
+    if (error) {
         return (
-            <div>Your data are loading...</div>
+            <div className="error">
+                ⚠ L'API ne répond pas, veuillez vérifier si ce dernier est connecté. ⚠
+          </div> 
+        )
+    }
+    else if (isLoading) {
+        return (
+            <div className="loading">Your data are loading...</div>
         )
     } else {
         return (

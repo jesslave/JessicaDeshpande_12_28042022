@@ -1,6 +1,11 @@
 import { RadarChart, PolarGrid, PolarAngleAxis, Radar } from 'recharts'
 import './ChartRadar.css'
 
+/**
+ * Function returning a chart radar from given data
+ * @param {object} props
+ * @returns {object} <div> html object
+ */
 export function ChartRadar(props) {
     const kinds = props.data.kind
     const data = buildData(props, kinds)
@@ -16,7 +21,11 @@ export function ChartRadar(props) {
     )
 }
 
-//Function that will match the statistic type with the right value depending the coming data
+/**
+ * Function returning an object with maped kinds
+ * @param {object} props
+ * @returns {object} maped kinds with coming data
+ */
 function buildData(props, kinds) {
     return props.data.data.map((entry) => {
         return {

@@ -1,6 +1,11 @@
 import { Bar, Tooltip, BarChart, CartesianGrid, XAxis, YAxis } from 'recharts'
 import './DailyActivity.css'
 
+/**
+ * Function returning a bar chart from given data
+ * @param {object} props
+ * @returns {object} <div> html object
+ */
 export function DailyActivity(props) {
 
     //Calulate of min/max for the kilograms and kilocalories depending the coming data
@@ -11,7 +16,9 @@ export function DailyActivity(props) {
     const minCalories = calories.reduce((previousValue, currentValue) => previousValue <= currentValue ? previousValue : currentValue);
     const maxCalories = calories.reduce((previousValue, currentValue) => previousValue >= currentValue ? previousValue : currentValue);
 
-    //Custom Tooltip to display on a red background the kilograms and kilocalories 
+    /**
+     * Custom Tooltip to display on a red background the kilograms and kilocalories 
+     */
     const CustomTooltip = ({ active, payload }) => {
         if (active && payload) {
             return (

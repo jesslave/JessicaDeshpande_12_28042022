@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: pages/profile/Profile.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: pages/profile/Profile.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { HttpService } from "../../api/HttpService";
+import { Average } from "../../components/average/Average";
+import { ChartRadar } from "../../components/chartRadar/ChartRadar";
+import { DailyActivity } from "../../components/daily-activity/DailyActivity";
+import { Greetings } from "../../components/greetings/Greetings";
+import { ChartPie } from "../../components/pieChart/ChartPie";
+import { Statistic } from "../../components/statistic/Statistic";
+import './Profile.css';
+
+/**
+ * Home page display
+ * @component
+ * @returns {object} &lt;div> html object
+ */
+export function Profile() {
+    const httpService = HttpService();
+    const [isLoading, setLoading] = useState(true);
+    const [userInformation, setUserInformation] = useState(); 
+    const [userActivities, setUserActivities] = useState();
+    const [userAverageSession, setUserAverageSession] = useState();
+    const [userPerformance, setUserPerformance] = useState();
+    const [error, setError] = useState(false);
+    const { userId } = useParams();
+
+    //Call of the service to get all the data
+    useEffect(() => {
+        Promise.all([
+            httpService.getUserInformation(userId),
+            httpService.getUserActivity(userId),
+            httpService.getUserAverageSession(userId),
+            httpService.getUserPerformance(userId)
+        ]).then(([userInfos, userAct, userAvgSession, userPerf]) => {
+            setUserInformation(userInfos.data.data)
+            setUserActivities(userAct.data.data)
+            setUserAverageSession(userAvgSession.data.data)
+            setUserPerformance(userPerf.data)
+            setLoading(false)
+        }).catch(res => {
+            setError(true);
+        })
+        
+    }, [])
+
+    //While the data are loading, we stay in loading status
+    if (error) {
+        return (
+            &lt;div className="error">
+                ⚠ L'API ne répond pas, veuillez vérifier si ce dernier est connecté. ⚠
+          &lt;/div> 
+        )
+    }
+    else if (isLoading) {
+        return (
+            &lt;div className="loading">Your data are loading...&lt;/div>
+        )
+    } else {
+        return (
+            &lt;div className="profile">
+                &lt;div className="blank">
+    
+                &lt;/div>
+                &lt;div className="greet">
+                    &lt;Greetings name={userInformation.userInfos.firstName}>&lt;/Greetings>
+                &lt;/div>
+                &lt;div className="act">
+                    &lt;DailyActivity data={userActivities.sessions}/>
+                &lt;/div>
+                &lt;div className="average">
+                    &lt;Average data={userAverageSession.sessions}/>
+                &lt;/div>
+                &lt;div className="rad">
+                    &lt;ChartRadar data={userPerformance.data}/>
+                &lt;/div>
+                &lt;div className="sco">
+                    &lt;ChartPie value={userInformation.todayScore}/>
+                &lt;/div>
+                &lt;div className="sta">
+                    &lt;Statistic url="/calories-icon.png" quantity={userInformation.keyData.calorieCount + "kcal"} type="Calories">&lt;/Statistic>
+                    &lt;Statistic url="/protein-icon.png" quantity={userInformation.keyData.proteinCount + "g"} type="Proteines">&lt;/Statistic>
+                    &lt;Statistic url="/carbs-icon.png" quantity={userInformation.keyData.carbohydrateCount + "g"} type="Glucides">&lt;/Statistic>
+                    &lt;Statistic url="/fat-icon.png" quantity={userInformation.keyData.lipidCount + "g"} type="Lipides">&lt;/Statistic>
+                &lt;/div>
+            &lt;/div>
+        )
+    }
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="App.html">App</a></li><li><a href="HttpService.html">HttpService</a></li><li><a href="Profile.html">Profile</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Average">Average</a></li><li><a href="global.html#buildData">buildData</a></li><li><a href="global.html#ChartPie">ChartPie</a></li><li><a href="global.html#ChartRadar">ChartRadar</a></li><li><a href="global.html#CustomTooltip">CustomTooltip</a></li><li><a href="global.html#DailyActivity">DailyActivity</a></li><li><a href="global.html#dayAsString">dayAsString</a></li><li><a href="global.html#formatDaysAsString">formatDaysAsString</a></li><li><a href="global.html#getUserActivity">getUserActivity</a></li><li><a href="global.html#getUserAverageSession">getUserAverageSession</a></li><li><a href="global.html#getUserInformation">getUserInformation</a></li><li><a href="global.html#getUserPerformance">getUserPerformance</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Sat Jun 11 2022 18:36:22 GMT+0200 (heure d’été d’Europe centrale)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

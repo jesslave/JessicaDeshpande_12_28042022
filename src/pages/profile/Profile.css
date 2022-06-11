@@ -29,6 +29,7 @@
 }
 
 .profile {
+    margin-left: 3rem;
     display: grid;
     grid-template-areas: 
         "blank greet greet . ."
@@ -36,4 +37,17 @@
         "blank act act act sta"
         "blank average rad sco sta"
         "blank average rad sco sta";
+}
+
+.error {
+    font-weight: bold;
+    font-size: 2rem;
+    margin: 2rem;
+    color: red;
+}
+
+.loading {
+    font-weight: bold;
+    font-size: 2rem;
+    margin: 2rem;
 }

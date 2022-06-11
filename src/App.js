@@ -4,7 +4,13 @@ import { Menu } from './components/menu/Menu';
 import { Sidebar } from './components/sidebar/Sidebar';
 import { Profile } from './pages/profile/Profile';
 
+/**
+ * Function returning the complete main page
+ * @component
+ * @returns {object} <div> html object
+ */
 function App() {
+ 
   return (
     <div className='App'>
       <div className='header'>

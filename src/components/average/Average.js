@@ -1,7 +1,9 @@
 import { Line, Tooltip, LineChart, XAxis, YAxis } from 'recharts'
 import './Average.css'
 
-// days week enumeration
+/**
+ * Days week enumeration
+ */
 const dayAsString = new Map([
     [1, "L"],
     [2, "M"],
@@ -12,7 +14,9 @@ const dayAsString = new Map([
     [7, "D"]
 ]);
 
-//Custom Tooltip to display only the time
+/**
+ * Custom Tooltip to display only the time
+ */
 const CustomTooltip = ({ active, payload }) => {
     if (active && payload) {
         return (
@@ -26,6 +30,11 @@ const CustomTooltip = ({ active, payload }) => {
     return null;
 };
 
+/**
+ * Function returning a line chart from given data
+ * @param {object} props
+ * @returns {object} <div> html object
+ */
 export function Average(props) {
     const data = formatDaysAsString(props)
 
@@ -57,7 +66,11 @@ export function Average(props) {
     )
 }
 
-//Function that will match the day with its value from the coming datas
+/**
+ * Function that will match the day with its value from the coming datas
+ * @param {object} props
+ * @returns {object} maped data
+ */
 function formatDaysAsString(props) {
     return props.data.map((entry) => {
         return { day: dayAsString.get(entry.day), min: entry.sessionLength };

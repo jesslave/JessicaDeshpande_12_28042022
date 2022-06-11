@@ -1,6 +1,11 @@
 import { PieChart, Pie } from 'recharts'
 import './ChartPie.css'
 
+/**
+ * Function returning a pie chart from given data
+ * @param {object} props
+ * @returns {object} <div> html object
+ */
 export function ChartPie(props) {
     //First data is the userScore
     //Second data is what is needed to be removed to obtain only the user score in red color
